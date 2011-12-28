@@ -2,9 +2,9 @@
 // By Todd Long <longfocus@gmail.com>
 // http://www.longfocus.com/firefox/gmanager/
 
-const EXTENSION = "Gmail Manager";
-const VERSION   = "0.6.4.1";
-const ID        = "{582195F5-92E7-40a0-A127-DB71295901D7}";
+const EXTENSION = "Gmail Manager NG";
+const VERSION   = "0.6.5";
+const ID        = "gmail-manager-ng@nedwidek.github.com";
 const NAME      = "gmanager";
 const KEY       = "/gmanager";
 const JAR_FILE  = NAME + ".jar";
