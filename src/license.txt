@@ -1,15 +1,26 @@
-Gmail Manager - Firefox Extension
+Gmail Manager NG - Firefox Extension
 
 This extension is not affiliated with Google or the Gmail service in any way.
 
-By using this extension you agree that I will not be held responsible for any
-harm that may come out of your Gmail account i.e. your account becoming disabled
-or removed. You understand that this extension, as perfect as it is, may not
-always work seamlessly with Google's Gmail service because of the API changes.
+By using this extension you agree that all contributors will not be held
+responsible for any harm that may come out of your Gmail account i.e. your
+account becoming disabled or removed. You understand that this extension, as
+perfect as it is, may not always work seamlessly with Google's Gmail service
+because of the API changes.
 
 This license applies to all files delivered with this extension.
 
 ***** BEGIN LICENSE BLOCK *****
+
+Gmail Manager NG was forked from the original Gmail Manager December 2011 under
+the same license terms. Those wishing to contribute should fork the repository
+https://github.com/nedwidek/firefox-gmail-manager-ng. Once your changes are
+complete, issue a pull request. By issuing a pull request, you are certifying
+that the code contained is your own or it is compatible with the licenses of
+this project.
+
+Contributors to Gmail Manager NG:
+	Erik Nedwidek <http://github.com/nedwidek>
 
 Version: MPL 1.1/GPL 2.0/LGPL 2.1
 
@@ -31,6 +42,7 @@ the Initial Developer. All Rights Reserved.
 
 	Contributor(s):
 	Todd Long <longfocus@gmail.com>
+	Alexis Thomas <http://github.com/athomas>
 
 Alternatively, the contents of this file may be used under the terms of
 either the GNU General Public License Version 2 or later (the "GPL"), or

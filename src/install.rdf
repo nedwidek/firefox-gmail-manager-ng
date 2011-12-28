@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- 
+  Gmail Manager NG
+  http://github.com/nedwidek/firefox-gmail-manager-ng
+
+Based on:
   Gmail Manager
   By Todd Long <longfocus@gmail.com>
   http://www.longfocus.com/firefox/gmanager/
@@ -10,15 +14,15 @@
 		xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 		
 	<Description about="urn:mozilla:install-manifest">
-		<em:id>{582195F5-92E7-40a0-A127-DB71295901D7}</em:id>
+		<em:id>gmail-manager-ng@nedwidek.github.com</em:id>
 		<em:version>0.6.4.1.4</em:version>
 		<em:type>2</em:type>
 		
-		<em:name>Gmail Manager</em:name>
-		<em:description>Manage multiple Gmail accounts and receive new mail notifications.</em:description>
-		<em:creator>Todd Long &lt;longfocus@gmail.com&gt;</em:creator>
+		<em:name>Gmail Manager NG</em:name>
+		<em:description>Based on Gmail Manager by Todd Long. This fork is intended to a supported version of Gmail Manager since Todd appears to have gone MIA. Manage multiple Gmail accounts and receive new mail notifications.</em:description>
+		<em:creator>Erik Nedwidek</em:creator>
 		<em:contributor>BabelZilla.org translation team</em:contributor>
-		<em:homepageURL>http://www.longfocus.com/firefox/gmanager/</em:homepageURL>
+		<em:homepageURL>http://github.com/nedwidek/firefox-gmail-manager-ng</em:homepageURL>
 		<em:iconURL>chrome://gmanager/skin/gmail-icon.png</em:iconURL>
 		<em:optionsURL>chrome://gmanager/content/options/options.xul</em:optionsURL>
 		
@@ -27,7 +31,7 @@
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>2.0</em:minVersion>
-				<em:maxVersion>8.*</em:maxVersion>
+				<em:maxVersion>9.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 		
