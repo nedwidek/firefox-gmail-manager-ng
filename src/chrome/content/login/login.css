@@ -1,0 +1,13 @@
+@import url("chrome://global/skin/");
+@import url("chrome://gmanager/skin/overlay.css");
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+  Gmail Manager
+  By Todd Long <longfocus@gmail.com>
+  http://www.longfocus.com/firefox/gmanager/
+*/
+
+#gmanager-login-email {
+	min-width: 250px;
+}
