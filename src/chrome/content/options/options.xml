@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- 
-  Gmail Manager
-  By Todd Long <longfocus@gmail.com>
-  http://www.longfocus.com/firefox/gmanager/
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
  -->
 
 <bindings xmlns="http://www.mozilla.org/xbl"

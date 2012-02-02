@@ -6,8 +6,8 @@
 
 Based on:
   Gmail Manager
-  By Todd Long <longfocus@gmail.com>
-  http://www.longfocus.com/firefox/gmanager/
+  Todd Long <longfocus@gmail.com>
+  http://www.longfocus.com/firefox/gmanager
  -->
 
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -21,6 +21,7 @@ Based on:
 		<em:name>Gmail Manager NG</em:name>
 		<em:description>Based on Gmail Manager by Todd Long. This fork is intended to a supported version of Gmail Manager since Todd appears to have gone MIA. Manage multiple Gmail accounts and receive new mail notifications.</em:description>
 		<em:creator>Erik Nedwidek</em:creator>
+        <em:contributor>Todd Long</em:contributor>
 		<em:contributor>BabelZilla.org translation team</em:contributor>
 		<em:homepageURL>http://github.com/nedwidek/firefox-gmail-manager-ng</em:homepageURL>
 		<em:iconURL>chrome://gmanager/skin/gmail-icon.png</em:iconURL>
@@ -31,7 +32,7 @@ Based on:
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>2.0</em:minVersion>
-				<em:maxVersion>9.*</em:maxVersion>
+				<em:maxVersion>13.0a1</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 		

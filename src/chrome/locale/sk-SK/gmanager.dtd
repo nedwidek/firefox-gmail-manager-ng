@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager">
+<!ENTITY ext-name "Gmail Manager NG">
 <!ENTITY ext-description "Správca Gmail účtov a upozornenia na novú poštu.">
 <!ENTITY common-alias "Alias">
 <!ENTITY common-email "E-mail">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "P">
 <!ENTITY btn-preview.ak "k">
 <!ENTITY btn-visit-site.ak "v">
-<!ENTITY migrate-title "Migrovanie účtov Gmail Manager">
+<!ENTITY migrate-title "Migrovanie účtov Gmail Manager NG">
 <!ENTITY migrate-select-accounts "Zvoľte účty, ktoré chcete premigrovať:">
 <!ENTITY migrate-login-accounts "Prihlásiť sa k zvoleným účtom.">
-<!ENTITY login-title "Prihlásenie Gmail Manager">
+<!ENTITY login-title "Prihlásenie Gmail Manager NG">
 <!ENTITY login-header-label "Zadajte údaje potrebné k prihláseniu:">
 <!ENTITY login-remember-password-label "Zapamätať si heslo.">
 <!ENTITY alert-from "od">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "Nová karta (v popredí)">
 <!ENTITY tab-location-background "Nová karta (na pozadí)">
 <!ENTITY tab-location-window "Nové okno">
-<!ENTITY options-title "Gmail Manager - Možnosti">
+<!ENTITY options-title "Gmail Manager NG - Možnosti">
 <!ENTITY options-tab-general "Všeobecné">
 <!ENTITY options-tab-accounts "Účty">
 <!ENTITY options-tab-compose "Nová správa">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "Notifikácie">
 <!ENTITY options-tab-help "Pomocník">
 <!ENTITY options-tab-debug "Ladenie">
-<!ENTITY options-general-hide-context-menu "Skryť Gmail Manager v kontextovej ponuke.">
-<!ENTITY options-general-hide-tools-menu "Skryť Gmail Manager v ponuke Nástroje.">
+<!ENTITY options-general-hide-context-menu "Skryť Gmail Manager NG v kontextovej ponuke.">
+<!ENTITY options-general-hide-tools-menu "Skryť Gmail Manager NG v ponuke Nástroje.">
 <!ENTITY options-general-startup "Spustenie">
 <!ENTITY options-general-auto-login "Po spustení sa automaticky prihlásiť k všetkým účtom.">
 <!ENTITY options-accounts-auto-login "Automatické prihlásenie">
 <!ENTITY options-compose-mailto-links "Odkazy mailto:">
-<!ENTITY options-compose-internet-links "Po kliknutí na odkazy mailto: automaticky použiť Gmail Manager.">
+<!ENTITY options-compose-internet-links "Po kliknutí na odkazy mailto: automaticky použiť Gmail Manager NG.">
 <!ENTITY options-compose-prompt-for "Opýtať sa pre zvolený účet...">
 <!ENTITY options-compose-default-account "Predvolený účet:">
 <!ENTITY options-compose-context-menu "Kontextová ponuka">
@@ -79,6 +79,15 @@
 <!ENTITY options-toolbar-check-messages "Skontrolovať nové správy">
 <!ENTITY options-toolbar-compose-message "Vytvoriť novú správu">
 <!ENTITY options-toolbar-reset-unread-count "Pri otvorení účtu vynulovať počet neprečítaných správ.">
+<!ENTITY options-help-release-manager "Release Manager:">
+<!ENTITY options-help-based-on "Based On:">
+<!ENTITY options-help-join-community "Join the Community">
+<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
+<!ENTITY options-help-issues "Bug Support and Features">
+<!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
+<!ENTITY options-help-supporters "Thanks to the Supporters of Gmail Manager">
+<!ENTITY options-help-supporters-message "The following people donated to the original project. They deserve a special thanks for helping to make Gmail Manager a fantastic add on.">
 <!ENTITY options-help-author "Autor:">
 <!ENTITY options-help-website "Webová stránka:">
 <!ENTITY options-help-contact "Kontakt">
@@ -86,10 +95,10 @@
 <!ENTITY options-help-translate "Preklad">
 <!ENTITY options-help-interested-translating "Chcete prekladať?">
 <!ENTITY options-help-donate-paypal "Prispieť autorovi cez PayPal">
-<!ENTITY options-help-support "Pomôžte v podpore rozšírenia Gmail Manager a ďalšom vývoji. Týmto umožníte vylepšovanie tohto rozšírenia. Tiež budú vaše meno a webová stránka uvedené v zozname nižšie. Vopred ďakujem.">
+<!ENTITY options-help-support "Pomôžte v podpore rozšírenia Gmail Manager NG a ďalšom vývoji. Týmto umožníte vylepšovanie tohto rozšírenia. Tiež budú vaše meno a webová stránka uvedené v zozname nižšie. Vopred ďakujem.">
 <!ENTITY options-help-click-here-paypal "Kliknutím sem môžete prispieť autorovi cez PayPal...">
 <!ENTITY options-help-thanks-to "Poďakovanie:">
-<!ENTITY options-account-title "Účet Gmail Manager">
+<!ENTITY options-account-title "Účet Gmail Manager NG">
 <!ENTITY options-account-general-account "Účet">
 <!ENTITY options-account-general-startup "Spustenie">
 <!ENTITY options-account-general-auto-login "Po spustení sa automaticky prihlásiť k tomuto účtu.">

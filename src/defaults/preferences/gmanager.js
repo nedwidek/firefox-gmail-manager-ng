@@ -1,6 +1,6 @@
 // Gmail Manager
-// By Todd Long <longfocus@gmail.com>
-// http://www.longfocus.com/firefox/gmanager/
+// Erik Nedwidek (http://github.com/nedwidek)
+// Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 // Localized description
 pref("extensions.{582195F5-92E7-40a0-A127-DB71295901D7}.description", "chrome://gmanager/locale/gmanager.properties");

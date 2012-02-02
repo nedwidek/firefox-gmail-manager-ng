@@ -1,6 +1,6 @@
 // Gmail Manager
-// By Todd Long <longfocus@gmail.com>
-// http://www.longfocus.com/firefox/gmanager/
+// Erik Nedwidek (http://github.com/nedwidek)
+// Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 const GM_CLASS_NAME = "Preferences XML Parser";
 const GM_CLASS_ID = Components.ID("{d0fe9af0-f7bc-11da-974d-0800200c9a66}");

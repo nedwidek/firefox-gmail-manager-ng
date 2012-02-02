@@ -1,6 +1,6 @@
 // Gmail Manager
-// By Todd Long <longfocus@gmail.com>
-// http://www.longfocus.com/firefox/gmanager/
+// Erik Nedwidek (http://github.com/nedwidek)
+// Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 const GM_CLASS_NAME = "Mail Account";
 const GM_CLASS_ID = Components.ID("{d4676ee3-7e3c-455a-b417-37eaea3082ad}");

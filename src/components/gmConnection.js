@@ -1,6 +1,6 @@
 // Gmail Manager
-// By Todd Long <longfocus@gmail.com>
-// http://www.longfocus.com/firefox/gmanager/
+// Erik Nedwidek (http://github.com/nedwidek)
+// Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 const GM_CLASS_NAME = "Connection Listener";
 const GM_CLASS_ID = Components.ID("{7e8e54b5-a41a-4a08-9fc3-bed4c5e9adb1}");

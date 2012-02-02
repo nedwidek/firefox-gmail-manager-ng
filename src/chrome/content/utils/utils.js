@@ -1,10 +1,10 @@
-// Gmail Manager
-// By Todd Long <longfocus@gmail.com>
-// http://www.longfocus.com/firefox/gmanager/
+// Gmail Manager NG
+// Erik Nedwidek (http://github.com/nedwidek)
+// Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 var gmanager_Utils = new function()
 {
-  this.WEBSITE = "http://www.longfocus.com/firefox/gmanager/";
+  this.WEBSITE = "http://github.com/nedwidek/firefox-gmail-mananger-ng/";
   
   this.init = function()
   {

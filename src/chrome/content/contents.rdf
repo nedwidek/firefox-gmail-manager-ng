@@ -9,7 +9,7 @@
 	
 	<RDF:Description about="urn:mozilla:package:gmanager"
 			chrome:author="Todd Long"
-			chrome:authorURL="http://www.longfocus.com/firefox/gmanager/"
+			chrome:authorURL="Based on Gmail Manager by Todd Long <longfocus@gmail.com>"
 			chrome:extension="true"
 			chrome:name="gmanager">
 	</RDF:Description>

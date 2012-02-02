@@ -2,9 +2,9 @@
 <?xml-stylesheet href="chrome://gmanager/content/options/options.css" type="text/css"?>
 
 <!-- 
-  Gmail Manager
-  By Todd Long <longfocus@gmail.com>
-  http://www.longfocus.com/firefox/gmanager/
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
  -->
 
 <!DOCTYPE page SYSTEM "chrome://gmanager/locale/gmanager.dtd">
@@ -17,67 +17,60 @@
 		<grid>
 			<rows>
 				<row>
-					<label value="&options-help-author;"/>
+					<label value="&options-help-release-manager;"/>
 					
-					<label value="Todd Long"
-						tooltiptext="tLo =)"/>
-				</row>
-				
-				<row>
-					<label value="&common-email;:"/>
-					
-					<label class="gmanager-link"
-						value="longfocus@gmail.com"
-						tooltiptext="longfocus@gmail.com"
-						onclick="parent.gmanager_Utils.loadDefaultMail('mailto:longfocus@gmail.com');"/>
+					<label value="Erik Nedwidek"
+						tooltiptext="http://github.com/nedwidek/"/>
 				</row>
 				
 				<row>
 					<label value="&options-help-website;"/>
 					
 					<label class="gmanager-link"
-						value="http://www.longfocus.com/"
-						tooltiptext="http://www.longfocus.com/"
-						onclick="parent.gmanager_Utils.loadSimpleURI('http://www.longfocus.com/');"/>
+						value="http://github.com/nedwidek/firefox-gmail-manager-ng"
+						tooltiptext="http://github.com/nedwidek/firefox-gmail-manager-ng"
+						onclick="parent.gmanager_Utils.loadSimpleURI('http://github.com/nedwidek/firefox-gmail-manager-ng');"/>
+				</row>
+                				
+				<row>
+					<label value="&options-help-based-on;"/>
+					
+					<label class="gmanager-link"
+                        value="Gmail Manager by Todd Long &lt;longfocus@gmail.com&gt;"
+						tooltiptext="http://www.longfocus.com/firefox/gmanager/"
+						onclick="parent.gmanager_Utils.loadSimpleURI('http://www.longfocus.com/firefox/gmanager/');"/>
 				</row>
 			</rows>
 		</grid>
 	</groupbox>
 	
 	<groupbox>
-		<caption label="&options-help-contact;"/>
+		<caption label="&options-help-join-community;"/>
 		
-		<label class="gmanager-link"
-			value="&options-help-questions-comments;"
-			tooltiptext="http://www.longfocus.com/contact/"
-			onclick="parent.gmanager_Utils.loadSimpleURI('http://www.longfocus.com/contact/');"/>
+		<label>&options-help-join-community-message;</label>
 	</groupbox>
 	
 	<groupbox>
 		<caption label="&options-help-translate;"/>
 		
-		<label class="gmanager-link"
-			value="&options-help-interested-translating;"
-			tooltiptext="http://www.longfocus.com/firefox/gmanager/translate/"
-			onclick="parent.gmanager_Utils.loadSimpleURI('http://www.longfocus.com/firefox/gmanager/translate/');"/>
+		<label>&options-help-translate-message;</label>
+	</groupbox>
+
+    <groupbox>
+		<caption label="&options-help-issues;"/>
+		
+		<label>&options-help-issues-message;</label>
 	</groupbox>
 	
 	<groupbox>
-		<caption label="&options-help-donate-paypal;"/>
+		<caption label="&options-help-supporters;"/>
 		
-		<description width="100">&options-help-support;</description>
+		<label>&options-help-supporters-message;</label>
 		
-		<separator class="thin"/>
-		
-		<label class="gmanager-link"
-			value="&options-help-click-here-paypal;"
-			tooltiptext="http://www.longfocus.com/firefox/donate/"
-			onclick="parent.gmanager_Utils.loadSimpleURI('http://www.longfocus.com/firefox/gmanager/donate/');"/>
-			
 		<separator class="thin"/>
 		
 		<hbox align="center">
-			<label value="&options-help-thanks-to;"/>
+			<label>&options-help-thanks-to;</label>
 			
 			<menulist id="gmanager-options-help-contributors-list"
 					flex="1"
