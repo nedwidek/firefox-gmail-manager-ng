@@ -36,8 +36,7 @@
 	    window.addEventListener("load", gmanager_OverlayLoad, false);
 		window.addEventListener("unload", gmanager_OverlayUnload, false);
 		
-		var windowContent = window.document.getElementById("content");
-		windowContent.addEventListener("click", gmanager_ContentAreaClick, false);
+		content.addEventListener("click", gmanager_ContentAreaClick, false);
 	  ]]>
 	</script>
 	
