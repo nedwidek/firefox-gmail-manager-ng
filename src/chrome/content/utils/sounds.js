@@ -6,13 +6,13 @@ var gmanager_Sounds = new function()
 {
   this.__proto__ = new gmanager_BundlePrefix("gmanager-sounds-");
   
-  this.WAV_FILTER_TYPE = "*.wav";
+  this.WAV_FILTER_TYPE = "*.ogg; *.wav";
   
   this.init = function()
   {
     this._ioService = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
-    this._soundService = Components.classes["@mozilla.org/sound;1"].createInstance(Components.interfaces.nsISound);
-    this._soundService.init();
+    //this._soundService = Components.classes["@mozilla.org/sound;1"].createInstance(Components.interfaces.nsISound);
+    //this._soundService.init();
   }
   
   this.play = function(aPath)
@@ -29,8 +29,12 @@ var gmanager_Sounds = new function()
       uri = this._ioService.newURI(aPath, null, null);
     }
     
-    if (uri)
-      this._soundService.play(uri);
+    if (uri) {
+      var audio = new Audio();
+      audio.src = uri.spec
+      audio.play();
+    }
+      
   }
   
   this.selectFile = function()
