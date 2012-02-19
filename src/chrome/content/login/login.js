@@ -60,7 +60,7 @@ var gmanager_Login = new function()
     }
     else
     {
-      var manager = Components.classes["@longfocus.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+      var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
       var account = (this._account ? this._account : manager.getAccount(email));
       
       // Check if the account does not exist

@@ -4,7 +4,7 @@
 
 const GM_CLASS_NAME = "Gmail Account Service";
 const GM_CLASS_ID = Components.ID("{b07df9d0-f7dd-11da-974d-0800200c9a66}");
-const GM_CONTRACT_ID = "@longfocus.com/gmanager/service/gmail;1";
+const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/service/gmail;1";
 
 const GM_NOTIFY_STATE = "gmanager-accounts-notify-state";
 
@@ -12,8 +12,9 @@ const GM_TIMEOUT_INTERVAL = 30000;
 
 function gmServiceGmail()
 {
+  this.wrappedJSObject = this;
   // Load the services
-  this._logger = Components.classes["@longfocus.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
+  this._logger = Components.classes["@hatterassoftware.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
   this._cookieManager = Components.classes["@mozilla.org/cookiemanager;1"].getService(Components.interfaces.nsICookieManager2);
   this._observer = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
   this._timer = Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer);
@@ -31,6 +32,7 @@ gmServiceGmail.prototype = {
   _loggedIn: false,
   _checking: false,
   _inboxUnread: 0,
+  _importatnUnread: 0,
   _savedDrafts: 0,
   _spamUnread: 0,
   _spaceUsed: null,
@@ -61,6 +63,7 @@ gmServiceGmail.prototype = {
   get loggedIn() { return this._loggedIn; },
   get checking() { return this._checking; },
   get inboxUnread() { return this._inboxUnread; },
+  get importantUnread() { return this._importantUnread; },
   get savedDrafts() { return this._savedDrafts; },
   get spamUnread() { return this._spamUnread; },
   get spaceUsed() { return this._spaceUsed; },
@@ -91,7 +94,7 @@ gmServiceGmail.prototype = {
   _getServiceURI: function(aPassword, /* Optional */ aContinueData)
   {
     // Create the connection and send the server request
-    var connection = Components.classes["@longfocus.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
+    var connection = Components.classes["@hatterassoftware.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
     connection.send(this._loginURL, null);
     
     var serviceURI = {
@@ -250,7 +253,7 @@ gmServiceGmail.prototype = {
         this._connectionPhase = 0;
         
         // Create the connection and send the server request
-        this._connection = Components.classes["@longfocus.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
+        this._connection = Components.classes["@hatterassoftware.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
         this._connection.sendAsync(this._loginURL, null, this);
       }
     }
@@ -301,6 +304,7 @@ gmServiceGmail.prototype = {
   {
     // Reset the unread counts
     this._inboxUnread = 0;
+    this._importantUnread = 0;
     this._spamUnread = 0;
     this._snippets = null;
     
@@ -458,7 +462,7 @@ gmServiceGmail.prototype = {
       // Get the connection data
       var data = aConnection.data;
       
-      this._log("data = " + data);
+      //this._log("data = " + data);
       
       if (viewDataRegExp.test(data))
         this._connectionPhase = 2;
@@ -488,8 +492,8 @@ gmServiceGmail.prototype = {
           
           try {
             // Quota
-            var quMatches = jsonParse(data.match(/\["qu",(?:.|\s)+?]/)[0]);
-            
+            var quMatches = JSON.parse(data.match(/\["qu",(?:.|\s)+?]/)[0]);
+            this._log(data.match(/\["qu",(?:.|\s)+?]/)[0]);
             this._spaceUsed = quMatches[1];
             this._totalSpace = quMatches[2];
             this._percentUsed = quMatches[3];
@@ -504,13 +508,16 @@ gmServiceGmail.prototype = {
           try {
             // Inbox/Drafts/Spam/Labels
             var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0];
-            var ldMatches = jsonParse(ldMatchesPre.replace(/([\[,])["'](.+?)["'](?=[,\]])/g, this._inverter));
+            ldMatchesPre = ldMatchesPre.replace(/(\r\n|\r|\n)/gm, '');
+            ldMatchesPre = ldMatchesPre.replace(/,(?=,)/g, ',""');
+            var ldMatches = JSON.parse(ldMatchesPre);
             
             ldMatches[1].forEach(function(element, index, array) {
               const keyLabelMap = {
-                "^i" : ["_inboxUnread", 1],
-                "^r" : ["_savedDrafts", 2],
-                "^s" : ["_spamUnread", 1]
+                "^i"  : ["_inboxUnread", 1],
+                "^ig" : ["_importantUnread", 1],
+                "^r"  : ["_savedDrafts", 2],
+                "^s"  : ["_spamUnread", 1]
               };
               
               var key = element[0];
@@ -520,6 +527,7 @@ gmServiceGmail.prototype = {
             }, this);
             
             this._log("inboxUnread = " + this.inboxUnread);
+            this._log("importantUnread = " + this.importantUnread);
             this._log("savedDrafts = " + this.savedDrafts);
             this._log("spamUnread = " + this.spamUnread);
             
@@ -550,13 +558,15 @@ gmServiceGmail.prototype = {
           
           try {
             var tbMatches = data.match(/\["tb",(?:.|\s)+?](?:\s]){2,}(?!\s,,)/g);
-            
             // Initialize the snippets
             this._snippets = [];
             
             for (var i = 0, n = tbMatches.length; i < n; i++)
             {
-              var snippets = jsonParse(tbMatches[i]);
+              tbMatches[i] = tbMatches[i].replace(/(\r\n|\r|\n)/gm, '');
+              tbMatches[i] = tbMatches[i].replace(/,(?=,)/g, ',""');
+              //this._log(tbMatches[i]);
+              var snippets = JSON.parse(tbMatches[i]);
               
               snippets[2].forEach(function(snippet, index, array) {
                 // Check if the snippet is unread
@@ -583,8 +593,8 @@ gmServiceGmail.prototype = {
               {
                 var snippet = this._snippets[i];
                 
-                for (var j in snippet)
-                  this._log("snippet[" + i + "]." + j + " = " + snippet[j]);
+                //for (var j in snippet)
+                //  this._log("snippet[" + i + "]." + j + " = " + snippet[j]);
               }
             }
             else
@@ -727,71 +737,3 @@ function NSGetModule(aCompMgr, aFileSpec)
 {
   return gmanager_Module;
 }
-
-//This source code is free for use in the public domain.
-//NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
-
-//http://code.google.com/p/json-sans-eval/
-
-/**
-* Parses a string of well-formed JSON text.
-*
-* If the input is not well-formed, then behavior is undefined, but it is
-* deterministic and is guaranteed not to modify any object other than its
-* return value.
-*
-* This does not use `eval` so is less likely to have obscure security bugs than
-* json2.js.
-* It is optimized for speed, so is much faster than json_parse.js.
-*
-* This library should be used whenever security is a concern (when JSON may
-* come from an untrusted source), speed is a concern, and erroring on malformed
-* JSON is *not* a concern.
-*
-*                      Pros                   Cons
-*                    +-----------------------+-----------------------+
-* json_sans_eval.js  | Fast, secure          | Not validating        |
-*                    +-----------------------+-----------------------+
-* json_parse.js      | Validating, secure    | Slow                  |
-*                    +-----------------------+-----------------------+
-* json2.js           | Fast, some validation | Potentially insecure  |
-*                    +-----------------------+-----------------------+
-*
-* json2.js is very fast, but potentially insecure since it calls `eval` to
-* parse JSON data, so an attacker might be able to supply strange JS that
-* looks like JSON, but that executes arbitrary javascript.
-* If you do have to use json2.js with untrusted data, make sure you keep
-* your version of json2.js up to date so that you get patches as they're
-* released.
-*
-* @param {string} json per RFC 4627
-* @param {function (this:Object, string, *):*} opt_reviver optional function
-*     that reworks JSON objects post-parse per Chapter 15.12 of EcmaScript3.1.
-*     If supplied, the function is called with a string key, and a value.
-*     The value is the property of 'this'.  The reviver should return
-*     the value to use in its place.  So if dates were serialized as
-*     {@code { "type": "Date", "time": 1234 }}, then a reviver might look like
-*     {@code
-*     function (key, value) {
-*       if (value && typeof value === 'object' && 'Date' === value.type) {
-*         return new Date(value.time);
-*       } else {
-*         return value;
-*       }
-*     }}.
-*     If the reviver returns {@code undefined} then the property named by key
-*     will be deleted from its container.
-*     {@code this} is bound to the object containing the specified property.
-* @return {Object|Array}
-* @author Mike Samuel <mikesamuel@gmail.com>
-*/
-var jsonParse=function(){var r="(?:-?\\b(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?\\b)",k='(?:[^\\0-\\x08\\x0a-\\x1f"\\\\]|\\\\(?:["/\\\\bfnrt]|u[0-9A-Fa-f]{4}))';
-  k='(?:"'+k+'*")';var s=new RegExp("(?:false|true|null|[\\{\\}\\[\\]]|"+r+"|"+k+")","g"),t=new RegExp("\\\\(?:([^u])|u(.{4}))","g"),u={'"':'"',"/":"/","\\":"\\",
-  b:"\u0008",f:"\u000c",n:"\n",r:"\r",t:"\t"};function v(h,j,e){return j?u[j]:String.fromCharCode(parseInt(e,16))}var w=new String(""),x=Object.hasOwnProperty;
-  return function(h,j){h=h.match(s);var e,c=h[0],l=false;if("{"===c)e={};else if("["===c)e=[];else{e=[];l=true}for(var b,d=[e],m=1-l,y=h.length;m<y;++m){c=h[m];
-  var a;switch(c.charCodeAt(0)){default:a=d[0];a[b||a.length]=+c;b=void 0;break;case 34:c=c.substring(1,c.length-1);if(c.indexOf("\\")!==-1)c=c.replace(t,v);a=d[0];
-  if(!b)if(a instanceof Array)b=a.length;else{b=c||w;break}a[b]=c;b=void 0;break;case 91:a=d[0];d.unshift(a[b||a.length]=[]);b=void 0;break;case 93:d.shift();break;
-  case 102:a=d[0];a[b||a.length]=false;b=void 0;break;case 110:a=d[0];a[b||a.length]=null;b=void 0;break;case 116:a=d[0];a[b||a.length]=true;b=void 0;break;
-  case 123:a=d[0];d.unshift(a[b||a.length]={});b=void 0;break;case 125:d.shift();break}}if(l){if(d.length!==1)throw new Error;e=e[0]}else if(d.length)throw new Error;
-  if(j){var p=function(n,o){var f=n[o];if(f&&typeof f==="object"){var i=null;for(var g in f)if(x.call(f,g)&&f!==n){var q=p(f,g);if(q!==void 0)f[g]=q;else{i||(i=[]);
-  i.push(g)}}if(i)for(g=i.length;--g>=0;)delete f[i[g]]}return j.call(n,o,f)};e=p({"":e},"")}return e}}();

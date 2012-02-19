@@ -60,7 +60,7 @@ var gmanager_Migrate = new function()
   
   this.dialogAccept = function()
   {
-    var manager = Components.classes["@longfocus.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+    var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
     var accountsList = document.getElementsByTagName("listitem");
     
     for (var i = 0, n = accountsList.length; i < n; i++)

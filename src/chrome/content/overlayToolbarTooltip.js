@@ -88,8 +88,14 @@ var gmanager_ToolbarTooltip = new function()
     var elParent = document.createElement("vbox");
     elParent.setAttribute("id", "gmanager-tooltip-details");
     
+    // Important Unread
+    var el = this._createLabel(this.getFString("important-unread", [aAccount.wrappedJSObject.importantUnread]));
+    el.setAttribute("flex", "1");
+    el.setAttribute("hidden", (aAccount.wrappedJSObject.importantUnread === 0));
+    elParent.appendChild(el);
+
     // Inbox Unread
-    var el = this._createLabel(this.getFString("inbox-unread", [aAccount.inboxUnread]));
+    el = this._createLabel(this.getFString("inbox-unread", [aAccount.inboxUnread]));
     el.setAttribute("flex", "1");
     elParent.appendChild(el);
     

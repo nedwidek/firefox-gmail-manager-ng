@@ -9,7 +9,7 @@ var gmanager_ToolbarMenu = new function()
   this.init = function()
   {
     // Load the accounts manager
-    this._manager = Components.classes["@longfocus.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+    this._manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
   }
   
   this._createMenuitem = function(aLabel)

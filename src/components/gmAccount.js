@@ -4,7 +4,7 @@
 
 const GM_CLASS_NAME = "Mail Account";
 const GM_CLASS_ID = Components.ID("{d4676ee3-7e3c-455a-b417-37eaea3082ad}");
-const GM_CONTRACT_ID = "@longfocus.com/gmanager/account;1";
+const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/account;1";
 
 // Global account type
 const GLOBAL_TYPE = "global";
@@ -18,8 +18,9 @@ const PASSWORD_SITE = "longfocus.gmanager.account";
 
 function gmAccount()
 {
+  this.wrappedJSObject = this;
   // Load the services
-  this._logger = Components.classes["@longfocus.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
+  this._logger = Components.classes["@hatterassoftware.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
   this._timer = Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer);
 }
 gmAccount.prototype = {
@@ -107,6 +108,7 @@ gmAccount.prototype = {
   get loggedIn() { return (this._service ? this._service.loggedIn : false); },
   get checking() { return (this._service ? this._service.checking : false); },
   get inboxUnread() { return (this._service ? this._service.inboxUnread : -1); },
+  get importantUnread() { return (this._service ? this._service.wrappedJSObject.importantUnread : -1); },
   get savedDrafts() { return (this._service ? this._service.savedDrafts : -1); },
   get spamUnread() { return (this._service ? this._service.spamUnread : -1); },
   get spaceUsed() { return (this._service ? this._service.spaceUsed : null); },
@@ -174,7 +176,7 @@ gmAccount.prototype = {
         {
           case ACCOUNT_TYPE_GMAIL:
             // Create the Gmail mail service
-            this._service = Components.classes["@longfocus.com/gmanager/service/gmail;1"].createInstance(Components.interfaces.gmIServiceGmail);
+            this._service = Components.classes["@hatterassoftware.com/gmanager/service/gmail;1"].createInstance(Components.interfaces.gmIServiceGmail);
             break;
           case ACCOUNT_TYPE_YAHOO:
             // TODO Create the Yahoo mail service

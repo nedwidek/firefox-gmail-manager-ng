@@ -14,7 +14,7 @@
 		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 		
 	<!-- System -->
-	<script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js"/>
+	<!--<script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js"/>-->
 	
 	<!-- Utilities -->
 	<script type="application/x-javascript" src="chrome://gmanager/content/utils/accounts.js"/>
@@ -36,7 +36,7 @@
 	    window.addEventListener("load", gmanager_OverlayLoad, false);
 		window.addEventListener("unload", gmanager_OverlayUnload, false);
 		
-		content.addEventListener("click", gmanager_ContentAreaClick, false);
+		window.document.addEventListener("click", gmanager_ContentAreaClick, false);
 	  ]]>
 	</script>
 	

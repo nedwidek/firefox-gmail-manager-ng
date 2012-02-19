@@ -29,7 +29,7 @@ var gmanager_Alerts = new function()
   {
     if (this._emails.length > 0)
     {
-      var manager = Components.classes["@longfocus.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+      var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
       
       this._email = this._emails.shift();
       
