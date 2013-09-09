@@ -1,6 +1,7 @@
 // Gmail Manager NG
 // Erik Nedwidek (http://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+// Dmitriy Botovikov (http://github.com/) Improvement in i18n
 
 var gmanager_ToolbarTooltip = new function()
 {
@@ -27,6 +28,10 @@ var gmanager_ToolbarTooltip = new function()
         // Check if the account is logged in
         hasDetails = account.loggedIn;
       }
+      // Separator
+      var el = document.createElement("separator");
+      el.setAttribute("class", "groove");
+      aTooltip.appendChild(el);
       
       if (hasDetails)
       {
@@ -47,7 +52,7 @@ var gmanager_ToolbarTooltip = new function()
   this._createLabel = function(aValue)
   {
     var label = document.createElement("label");
-    label.setAttribute("value", gmanager_Utils.toUnicode(aValue));
+    label.setAttribute("value", aValue);
     return label;
   }
   
@@ -167,7 +172,8 @@ var gmanager_ToolbarTooltip = new function()
           var elHbox = document.createElement("hbox");
           elHbox.setAttribute("flex", "1");
           
-          el = this._createLabel(snippets[i].from + " > " + snippets[i].subject);
+		  el = document.createElement("label");
+		  el.setAttribute("value", gmanager_Utils.toUnicode(snippets[i].from + " > " + snippets[i].subject));
           el.setAttribute("crop", "end");
           el.setAttribute("flex", "1");
           el.setAttribute("class", "gmanager-bold");
