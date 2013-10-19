@@ -4,7 +4,7 @@
 
 var gmanager_Utils = new function()
 {
-  this.WEBSITE = "http://github.com/nedwidek/firefox-gmail-mananger-ng/";
+  this.WEBSITE = "https://github.com/nedwidek/firefox-gmail-manager-ng";
   
   this.init = function()
   {
