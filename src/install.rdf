@@ -2,7 +2,7 @@
 
 <!-- 
   Gmail Manager NG
-  http://github.com/nedwidek/firefox-gmail-manager-ng
+  https://github.com/nedwidek/firefox-gmail-manager-ng
 
 Based on:
   Gmail Manager
@@ -23,7 +23,7 @@ Based on:
 		<em:creator>Erik Nedwidek</em:creator>
         <em:contributor>Todd Long</em:contributor>
 		<em:contributor>BabelZilla.org translation team</em:contributor>
-		<em:homepageURL>http://github.com/nedwidek/firefox-gmail-manager-ng</em:homepageURL>
+		<em:homepageURL>https://github.com/nedwidek/firefox-gmail-manager-ng</em:homepageURL>
 		<em:iconURL>chrome://gmanager/skin/gmail-icon.png</em:iconURL>
 		<em:optionsURL>chrome://gmanager/content/options/options.xul</em:optionsURL>
 		

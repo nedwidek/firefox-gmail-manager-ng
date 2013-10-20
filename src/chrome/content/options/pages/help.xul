@@ -27,9 +27,9 @@
 					<label value="&options-help-website;"/>
 					
 					<label class="gmanager-link"
-						value="http://github.com/nedwidek/firefox-gmail-manager-ng"
-						tooltiptext="http://github.com/nedwidek/firefox-gmail-manager-ng"
-						onclick="parent.gmanager_Utils.loadSimpleURI('http://github.com/nedwidek/firefox-gmail-manager-ng');"/>
+						value="https://github.com/nedwidek/firefox-gmail-manager-ng"
+						tooltiptext="https://github.com/nedwidek/firefox-gmail-manager-ng"
+						onclick="parent.gmanager_Utils.loadSimpleURI('https://github.com/nedwidek/firefox-gmail-manager-ng');"/>
 				</row>
                 				
 				<row>
