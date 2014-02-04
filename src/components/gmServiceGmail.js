@@ -216,15 +216,14 @@ gmServiceGmail.prototype = {
     this._domain = this.email.split("@")[1];
     
     // Check if the email is hosted
+    this._loginURL = "https://accounts.google.com/ServiceLoginAuth?service=mail";
     if (this.isHosted)
     {
-      this._loginURL = "https://www.google.com/a/" + this.domain + "/LoginAction2?service=mail";
       this._checkURL = "https://mail.google.com/a/" + this.domain + "/?";
       this._atomURL = "https://mail.google.com/a/" + this.domain + "/feed/atom/";
     }
     else
     {
-      this._loginURL = "https://accounts.google.com/ServiceLoginAuth?service=mail";
       this._checkURL = "https://mail.google.com/mail/?";
       this._atomURL = "https://mail.google.com/mail/feed/atom/";
     }
@@ -557,7 +556,8 @@ gmServiceGmail.prototype = {
           }
           
           try {
-            var tbMatches = data.match(/\["tb",(?:.|\s)+?](?:\s]){2,}(?!\s,,)/g);
+            //var tbMatches = data.match(/\["tb",(?:.|\s)+?](?:\s]){2,}(?!\s,,)/g);
+            var tbMatches = data.match(/\["tb",(?:.|\s)+?(?=,\["t[be]")/g);
             // Initialize the snippets
             this._snippets = [];
             
